@@ -1,0 +1,100 @@
+:root {
+    --yellow: #feb60a;
+    --red: #ff0062;
+    --blue: #00dbf9;
+    --violet: #da00f7;
+}
+
+.preloader {
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    margin: 0;
+    background-color: #1a1940;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 153, 212, 0) calc(15% + 100px), rgba(0, 99, 138, 0) calc(85% + 100px), rgba(0, 0, 0, 0.15) 100%);
+}
+
+.preloader__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.preloader__yellow,
+.preloader__red,
+.preloader__blue,
+.preloader__violet {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 100%;
+    margin: 2vw;
+    background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    animation: bounce 1.5s 0.5s linear infinite;
+}
+
+.preloader__yellow {
+    background-color: var(--yellow);
+}
+
+.preloader__red {
+    background-color: var(--red);
+    animation-delay: 0.1s;
+}
+
+.preloader__blue {
+    background-color: var(--blue);
+    animation-delay: 0.2s;
+}
+
+.preloader__violet {
+    background-color: var(--violet);
+    animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+
+    0%,
+    50%,
+    100% {
+        transform: scale(1);
+        filter: blur(0px);
+    }
+
+    25% {
+        transform: scale(0.6);
+        filter: blur(3px);
+    }
+
+    75% {
+        filter: blur(3px);
+        transform: scale(1.4);
+    }
+}
+
+.preloader__number {
+    font-size: 2.7rem;
+    bottom: 7.3rem;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    transform: translateX(-50%);
+    color: white;
+
+    @media only screen and (hover: none) and (pointer: coarse) {
+        font-size: 2.4rem;
+        bottom: 3rem;
+    }
+}
+
+.preloader__number__text {
+    display: inline-block;
+    opacity: 0;
+}

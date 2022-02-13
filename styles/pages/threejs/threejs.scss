@@ -1,0 +1,60 @@
+.threejs {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.threejs__intro {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.threejs__intro__content {
+    position: absolute;
+    width: 450px;
+    margin-left: 20px;
+    opacity: 0;
+    text-align: center;
+}
+
+.threejs__intro__context__text3__Wrapper {
+    width: 400px;
+    opacity: 0;
+}
+
+.threejs__intro__context__text1, .threejs__intro__context__text2 {
+    letter-spacing: 10px;
+    font-size: 2em;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+
+.threejs__intro__context__text3 {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    line-height: 1em;
+}
+
+.threejs__story {
+    height: 200vh;
+    display: none;
+}
+
+
+.threejs__canvas__container {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

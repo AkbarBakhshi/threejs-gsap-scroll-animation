@@ -1,0 +1,40 @@
+.about {
+    margin-top: 2rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about__welcome {
+    text-transform: uppercase;
+    color: brown;
+}
+
+.about__video__link {
+    margin: 2rem 0;
+    border: 2px solid white;
+    cursor: none;
+}
+
+.about__go__to__home__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: chartreuse;
+}
+
+.about__contact__email,
+.about__contact__phone {
+    text-decoration: none;
+    color: blanchedalmond;
+    margin: 20px 0;
+}
+
+.about__content__portfolio__title {
+    display: block;
+}
+
+.about__content__portfolio__image {
+    width: 400px;
+    margin: 10px 0;
+}

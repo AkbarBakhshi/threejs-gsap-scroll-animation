@@ -1,0 +1,23 @@
+.home {
+    margin-top: 2rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home__welcome {
+    text-transform: uppercase;
+}
+
+.home__youtube__channel__link {
+    margin-top: 2rem;
+}
+
+
+.home__go__to__about__link, .home__go__to__threejs__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: chartreuse;
+    margin: 20px 0;
+}

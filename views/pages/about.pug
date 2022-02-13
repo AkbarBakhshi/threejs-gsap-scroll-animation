@@ -1,0 +1,26 @@
+extends ../index.pug
+
+block variables
+    - var template = 'about'
+
+block content
+    .about
+        h1.about__header About page
+        if isDesktop
+            video.about__video__link(width='320' height='240')
+                source(src='https://www.w3schools.com/tags/movie.mp4' type='video/mp4')
+                |   Sorry, your browser doesn't support embedded videos.
+        else 
+            video.about__video__link(width='320' height='240' controls='')
+                source(src='https://www.w3schools.com/tags/movie.mp4' type='video/mp4')
+                |   Sorry, your browser doesn't support embedded videos.
+        a.about__go__to__home__link(href='/') go back to home
+        a.about__contact__email(href='mailto:akbarbakhshiwebdev@gmail.com?subject=Project Inquiry') Email me
+        a.about__contact__phone(href='tel:+12152152152') Call me
+        .about__content__portfolio 
+            .about__content__portfolio__title Portfolio 1
+            .about__content__portfolio__description This is my very first project
+            img.about__content__portfolio__image(alt='Portfolio 1' src='images/portfolio1.jpeg')
+            .about__content__portfolio__title Portfolio 2
+            .about__content__portfolio__description This is my second project
+            img.about__content__portfolio__image(alt='Portfolio 1' src='images/portfolio2.jpeg')

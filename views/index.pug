@@ -1,0 +1,47 @@
+block variables
+
+doctype html
+html(class=isDesktop ? "desktop" : isTablet ? 'tablet' : isPhone ? "phone" : "" lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+        base(href="/")
+
+        title="Welcome Late Night Coders"
+
+        meta(name="description" content="We are late night coders - WE ROCK!")
+
+        link(rel="apple-touch-icon" sizes="180x180" href="images/Favicons/apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="images/Favicons/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="images/Favicons/favicon-16x16.png")
+        link(rel="manifest" href="images/Favicons/site.webmanifest")
+
+        link(href="main.css" rel="stylesheet")
+
+        meta(name="msapplication-TileColor" content="#cdccb4")
+        meta(name="theme-color" content="#cdccb4")
+
+        meta(property="og:type" content="website")
+        meta(property="og:title" content="Welcome Late Night Coders")
+        meta(property="og:description" content="We are late night coders - WE ROCK!")
+        //- meta(property="og:image" content=meta.data.image ? meta.data.image.url : '')
+
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:title" content="Welcome Late Night Coders")
+        meta(name="twitter:description" content="We are late night coders - WE ROCK!")
+        //- meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
+
+    body
+
+        include ./partials/preloader
+        include ./partials/transition
+        include ./partials/cursor
+        include ./partials/logo
+
+        .content(data-template=template)
+            block content
+
+        include ./partials/noscript
+
+        script(src="main.js")

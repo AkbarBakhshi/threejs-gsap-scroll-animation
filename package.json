@@ -1,0 +1,52 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Wbpack boilderplate to be used for this channel",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "nodemon app.js",
+    "frontend:dev": "cross-env NODE_ENV=dev webpack serve --progress --config webpack.config.dev.js",
+    "backend:prod": "node app.js",
+    "frontend:prod": "webpack --progress --config webpack.config.prod.js"
+  },
+  "author": "Akbar Bakhshi",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^6.4.0",
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
+    "glslify-loader": "^2.0.0",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "nodemon": "^2.0.15",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "prefix": "^1.0.0",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "terser-webpack-plugin": "^5.2.5",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "gsap": "^3.8.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
+    "three": "^0.135.0",
+    "ua-parser-js": "^1.0.2"
+  }
+}
