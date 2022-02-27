@@ -193,71 +193,71 @@ export default class {
 
     onMouseDown(event) {
 
-        this.mouse.x = (event.clientX / this.width) * 2 - 1
-        this.mouse.y = - (event.clientY / this.height) * 2 + 1
+        // this.mouse.x = (event.clientX / this.width) * 2 - 1
+        // this.mouse.y = - (event.clientY / this.height) * 2 + 1
 
-        this.raycaster.setFromCamera(this.mouse, this.camera)
+        // this.raycaster.setFromCamera(this.mouse, this.camera)
 
-        const clickIntersects = this.raycaster.intersectObjects([this.object])
+        // const clickIntersects = this.raycaster.intersectObjects([this.object])
 
-        if (clickIntersects.length > 0) {
-            this.clicked = true
-            gsap.timeline()
-                .to(this.object.scale, {
-                    x: 2,
-                    y: 2,
-                    z: 2,
-                    ease: 'expo.in'
-                })
-            // .to(this.starsMaterial.uniforms.uScale, {
-            //     value: 0,
-            //     // duration: 3,
-            //     ease: 'expo.in'
-            // })
-        }
+        // if (clickIntersects.length > 0) {
+        //     this.clicked = true
+        //     gsap.timeline()
+        //         .to(this.object.scale, {
+        //             x: 2,
+        //             y: 2,
+        //             z: 2,
+        //             ease: 'expo.in'
+        //         })
+        //     // .to(this.starsMaterial.uniforms.uScale, {
+        //     //     value: 0,
+        //     //     // duration: 3,
+        //     //     ease: 'expo.in'
+        //     // })
+        // }
 
     }
 
     onMouseUp(event) {
-        if (this.clicked) {
-            gsap.timeline()
-                .to(this.object.scale, {
-                    x: 0,
-                    y: 0,
-                    z: 0,
-                    ease: 'expo.in'
-                })
-                .to(this.starsMaterial.uniforms.uScale, {
-                    value: 1,
-                    ease: 'expo.in'
-                })
-            this.clicked = false
-        }
+        // if (this.clicked) {
+        //     gsap.timeline()
+        //         .to(this.object.scale, {
+        //             x: 0,
+        //             y: 0,
+        //             z: 0,
+        //             ease: 'expo.in'
+        //         })
+        //         .to(this.starsMaterial.uniforms.uScale, {
+        //             value: 1,
+        //             ease: 'expo.in'
+        //         })
+        //     this.clicked = false
+        // }
     }
 
     onMouseMove(event) {
 
-        this.mouse.x = (event.clientX / this.width) * 2 - 1
-        this.mouse.y = - (event.clientY / this.height) * 2 + 1
+        // this.mouse.x = (event.clientX / this.width) * 2 - 1
+        // this.mouse.y = - (event.clientY / this.height) * 2 + 1
 
-        this.raycaster.setFromCamera(this.mouse, this.camera)
+        // this.raycaster.setFromCamera(this.mouse, this.camera)
 
-        const objects = [this.object]
-        this.intersects = this.raycaster.intersectObjects(objects)
+        // const objects = [this.object]
+        // this.intersects = this.raycaster.intersectObjects(objects)
 
-        if (this.intersects.length > 0) {
-            // console.log('intersect')
-            gsap.to(this.material.uniforms.uHoverState, {
-                value: 1,
-                ease: 'expo.inOut'
-            })
-        } else {
-            gsap.to(this.material.uniforms.uHoverState, {
-                value: 0,
-                ease: 'expo.inOut'
-            })
+        // if (this.intersects.length > 0) {
+        //     // console.log('intersect')
+        //     gsap.to(this.material.uniforms.uHoverState, {
+        //         value: 1,
+        //         ease: 'expo.inOut'
+        //     })
+        // } else {
+        //     gsap.to(this.material.uniforms.uHoverState, {
+        //         value: 0,
+        //         ease: 'expo.inOut'
+        //     })
 
-        }
+        // }
 
     }
 
