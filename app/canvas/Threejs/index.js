@@ -8,6 +8,7 @@ import particleFragment from 'shaders/particlesFragment.glsl'
 
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
+import LocomotiveScroll from 'locomotive-scroll';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -78,6 +79,17 @@ export default class {
         this.createStars()
 
         // this.createSphereParticles()
+
+        this.locoScroll = new LocomotiveScroll({
+            el: document.querySelector('.threejs'),
+            smooth: true,
+            smartphone: {
+               smooth: true
+           },
+           tablet: {
+               smooth: true
+           }
+        });
         this.setupScrollAnimation()
     }
 
@@ -136,12 +148,44 @@ export default class {
         this.scene.add(particles)
     }
 
+    locoUpdate() {
+        try {
+            // console.log('about scroll loco update')
+            this.locoScroll.update()
+        } catch {
+            // console.log('error on about loco resize caught')
+        }
+    }
+
     setupScrollAnimation() {
+
+        this.locoScroll.on("scroll", () => {
+            try {
+                ScrollTrigger.update();
+                // console.log("about scroll trigger updated")
+            } catch {
+                // console.log("error on about scroll trigger resize caught")
+            }
+        });
+        
+        ScrollTrigger.scrollerProxy('.threejs', {
+            scrollTop: (value) => {
+                return arguments.length ? this.locoScroll.scrollTo(value, 0, 0) : this.locoScroll.scroll.instance.scroll.y;
+            }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            },
+            // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+            pinType: document.querySelector('.threejs').style.transform ? "transform" : "fixed"
+        })
+
+        ScrollTrigger.addEventListener("refresh", () => this.locoUpdate())
 
         const allowScroll = () => {
             gsap.set(".threejs__story", { display: "block" })
             gsap.timeline({
                 scrollTrigger: {
+                    scroller:".threejs",
                     trigger: ".threejs__intro",
                     start: "top top",
                     pin: true,
@@ -158,6 +202,7 @@ export default class {
 
             gsap.timeline({
                 scrollTrigger: {
+                    scroller:".threejs",
                     trigger: '.threejs__story',
                     start: 'top bottom',
                     end: "top top",
@@ -262,6 +307,9 @@ export default class {
     }
 
     update() {
+
+        ScrollTrigger.refresh()
+        
         this.renderer.render(this.scene, this.camera)
         // this.controls.update()
 
@@ -290,6 +338,9 @@ export default class {
      * Destroy.
      */
     destroy() {
+        $('.c-scrollbar').remove()
+        this.locoScroll.destroy()
+        this.locoScroll.stop()
         this.destroyThreejs(this.scene)
     }
 

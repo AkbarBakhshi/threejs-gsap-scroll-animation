@@ -1,8 +1,12 @@
 # Quick Start Guide
 
-This repo includes the code for the video on combining Threejs and Gsap libraries to make cool scroll-based animations. An effect similar to what you can see in my portfolio website at https://akbarbakhshi.com/about. Below is the link to the Youtube video:
+This branch includes the code for adding Locomotive Scroll to the GSAP ScrollTrigger animation that we created in the **Main** branch in order to provide a smooth scrolling experience. An effect similar to what you can see in my portfolio website at https://akbarbakhshi.com/about. Below is the link to the Youtube video for the original scrolling effect:
 
 https://youtu.be/eNryscJ0S9c
+
+Here is the Youtube video with the Locomotive Sroll addition:
+
+https://youtu.be/Ero_m7HTIgk
 
 Download or clone the project on your local drive. Open Terminal (Command prompt) and navigate to the project folder. Then run ```npm install```. You should see a new folder called **node_modules** in the project folder.
 

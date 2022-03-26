@@ -57,6 +57,7 @@ app.use((err, req, res, next) => {
 })
 
 //=======================Connecting to port====================================
-app.listen(process.env.PORT || port, () => {
+// Adding 0.0.0.0 allows you to test your website on any other device on the same network as your development machine through accessing the ip of your maching. like 192.xxx.0.12:3000
+app.listen(process.env.PORT || port, '0.0.0.0', () => {
   console.log(`App listening at http://localhost:${port}`)
 })
